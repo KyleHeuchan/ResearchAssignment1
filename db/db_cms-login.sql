@@ -1,0 +1,105 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Feb 5, 2019 at 5:04PM
+-- Server version: 5.6.35
+-- PHP Version: 7.1.8
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `db_cms-login`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `LoginAttempts`
+--
+
+CREATE TABLE `LoginAttempts` (
+  `IP` varchar(20) NOT NULL,
+  `Attempts` int(11) NOT NULL,
+  `LastLogin` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_sessions`
+--
+
+CREATE TABLE `tbl_sessions` (
+  `ID` tinyint(4) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `IP` varchar(100) NOT NULL,
+  `timestamp` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_user`
+--
+
+CREATE TABLE `tbl_user` (
+  `user_id` smallint(4) UNSIGNED NOT NULL,
+  `user_fname` varchar(50) NOT NULL,
+  `user_lname` varchar(50) NOT NULL,
+  `user_name` varchar(50) NOT NULL,
+  `user_pass` varchar(50) NOT NULL,
+  `user_level` varchar(25) NOT NULL,
+  `user_ip` varchar(100) NOT NULL,
+  `user_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`user_id`, `user_fname`, `user_lname`, `user_name`, `user_pass`, `user_level`, `user_ip`, `user_date`) VALUES
+(1, 'Kyle', 'Heuchan', 'kyleiscool', 'coolman123', '', '::1', '2019-02-07 16:32:56'),
+(2, 'Banglanfeng', 'Pan', 'SpiderPan', 'spiderman', '', '::1', '2019-02-07 12:30:05');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tbl_sessions`
+--
+ALTER TABLE `tbl_sessions`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbl_sessions`
+--
+ALTER TABLE `tbl_sessions`
+  MODIFY `ID` tinyint(4) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_user`
+--
+ALTER TABLE `tbl_user`
+  MODIFY `user_id` smallint(4) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
