@@ -1,2 +1,2 @@
-# ResearchAssignment1
-Research Assignment Login
+# research-assignment-login
+Fanshawe College Research Assignment to create admin login in PHP and MYSQL 
